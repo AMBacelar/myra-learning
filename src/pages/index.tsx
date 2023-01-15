@@ -1,15 +1,104 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
+import { useEffect, useRef } from "react";
+
+const bubbly = (config: any) => {
+  const c = config || {};
+  const r = () => Math.random();
+  const canvas = c.canvas || document.createElement("canvas");
+  let width = canvas.width;
+  let height = canvas.height;
+  if (canvas.parentNode === null) {
+    canvas.setAttribute("style", "position:fixed;z-index:-1;left:0;top:0;min-width:100vw;min-height:100vh;");
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+  }
+  const context = canvas.getContext("2d");
+  const gradient = context.createLinearGradient(0, 0, 0, height);
+  gradient.addColorStop(0, c.colorStart || "#E88658");
+  gradient.addColorStop(0.5, c.colorStop || "#B7528C");
+  gradient.addColorStop(1, c.colorStop || "#09041C");
+  const nrBubbles = c.bubbles || Math.floor((width + height) * 0.02);
+  const bubbles = [];
+
+
+  // rgradient.addColorStop(1, "green");
+
+  for (let i = 0; i < nrBubbles; i++) {
+    bubbles.push({
+      f: () => { }, // fillStyle
+      x: r() * width, // x-position
+      y: r() * height, // y-position
+      r: (c.radiusFunc || (() => 20 + r() * width / 2)).call(), // radius
+      a: (c.angleFunc || (() => r() * Math.PI * 2)).call(), // angle
+      v: (c.velocityFunc || (() => 0.1 + r() * 0.5)).call() // velocity
+    });
+  }
+  (function draw() {
+    if (canvas.parentNode === null) {
+      return cancelAnimationFrame(draw as any as number)
+    }
+    if (c.animate !== false) {
+      requestAnimationFrame(draw);
+    }
+    context.globalCompositeOperation = "source-over";
+    context.fillStyle = gradient;
+    context.fillRect(0, 0, width, height);
+    context.globalCompositeOperation = c.compose || "source-over";
+    const bubbleColours = ['#E98857', '#6532B4', '#301661', '#C62965']
+    bubbles.forEach((bubble, i) => {
+      const rgradient = context.createRadialGradient(bubble.x, bubble.y, 0, bubble.x, bubble.y, bubble.r);
+      rgradient.addColorStop(0, bubbleColours[i]);
+      rgradient.addColorStop(1, `${bubbleColours[i]}00`);
+
+      context.beginPath();
+      context.arc(bubble.x, bubble.y, bubble.r, 0, Math.PI * 2);
+      context.fillStyle = rgradient;
+      context.fill();
+      // update positions for next draw
+      bubble.x += Math.cos(bubble.a) * bubble.v;
+      bubble.y += Math.sin(bubble.a) * bubble.v;
+      if (bubble.x - bubble.r > width) {
+        bubble.x = -bubble.r;
+      }
+      if (bubble.x + bubble.r < 0) {
+        bubble.x = width + bubble.r;
+      }
+      if (bubble.y - bubble.r > height) {
+        bubble.y = -bubble.r;
+      }
+      if (bubble.y + bubble.r < 0) {
+        bubble.y = height + bubble.r;
+      }
+    });
+  })();
+};
 
 const Home: NextPage = () => {
+  const effectCalled = useRef(false);
+  useEffect(() => {
+    // first
+    if (effectCalled.current) return;
+    console.log('yolo');
+    bubbly({
+      bubbles: 2
+    })
+    effectCalled.current = true;
+
+    return () => {
+      // second
+    }
+  }, [])
+
+
   return (
     <>
       <Head>
         <title>Myra Learning</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-gradient-to-b from-[#E88658] via-[#B7528C] to-[#09041C]">
+      <div className="">
         <div className="relative">
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
