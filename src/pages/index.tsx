@@ -22,7 +22,6 @@ const bubbly = () => {
 
   for (let i = 0; i < nrBubbles; i++) {
     bubbles.push({
-      f: () => { }, // fillStyle
       x: r() * width, // x-position
       y: r() * height, // y-position
       r: 20 + r() * width / 2, // radius
@@ -40,9 +39,10 @@ const bubbly = () => {
     context.globalCompositeOperation = "source-over";
     const bubbleColours = ['#E98857', '#6532B4', '#C62965']
     bubbles.forEach((bubble, i) => {
+      const bubbleColour = bubbleColours[i % bubbleColours.length] || bubbleColours[0] as string;
       const rgradient = context.createRadialGradient(bubble.x, bubble.y, 0, bubble.x, bubble.y, bubble.r);
-      rgradient.addColorStop(0, `${bubbleColours[i % bubbleColours.length]}`);
-      rgradient.addColorStop(0.7, `${bubbleColours[i % bubbleColours.length]}00`);
+      rgradient.addColorStop(0, `${bubbleColour}`);
+      rgradient.addColorStop(0.7, `${bubbleColour}00`);
 
       context.beginPath();
       context.arc(bubble.x, bubble.y, bubble.r, 0, Math.PI * 2);
