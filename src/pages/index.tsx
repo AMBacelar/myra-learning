@@ -2,55 +2,47 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useRef } from "react";
 
-const bubbly = (config: any) => {
-  const c = config || {};
+const bubbly = () => {
   const r = () => Math.random();
-  const canvas = c.canvas || document.createElement("canvas");
+  const canvas = document.createElement("canvas");
   let width = canvas.width;
   let height = canvas.height;
-  if (canvas.parentNode === null) {
-    canvas.setAttribute("style", "position:fixed;z-index:-1;left:0;top:0;min-width:100vw;min-height:100vh;");
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    document.body.appendChild(canvas);
-  }
-  const context = canvas.getContext("2d");
+  canvas.setAttribute("style", "position:fixed;z-index:-1;left:0;top:0;min-width:100vw;min-height:100vh;");
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+  document.body.appendChild(canvas);
+  const context = canvas.getContext("2d")!;
   const gradient = context.createLinearGradient(0, 0, 0, height);
-  gradient.addColorStop(0, c.colorStart || "#E88658");
-  gradient.addColorStop(0.5, c.colorStop || "#B7528C");
-  gradient.addColorStop(1, c.colorStop || "#09041C");
-  const nrBubbles = c.bubbles || Math.floor((width + height) * 0.02);
+  gradient.addColorStop(0, "#E88658");
+  gradient.addColorStop(0.5, "#B7528C");
+  gradient.addColorStop(1, "#09041C");
+  const nrBubbles = 10;
   const bubbles = [];
 
-
-  // rgradient.addColorStop(1, "green");
 
   for (let i = 0; i < nrBubbles; i++) {
     bubbles.push({
       f: () => { }, // fillStyle
       x: r() * width, // x-position
       y: r() * height, // y-position
-      r: (c.radiusFunc || (() => 20 + r() * width / 2)).call(), // radius
-      a: (c.angleFunc || (() => r() * Math.PI * 2)).call(), // angle
-      v: (c.velocityFunc || (() => 0.1 + r() * 0.5)).call() // velocity
+      r: 20 + r() * width / 2, // radius
+      a: r() * Math.PI * 2, // angle
+      v: 0.6 + r() * 0.5 // velocity
     });
   }
   (function draw() {
     if (canvas.parentNode === null) {
       return cancelAnimationFrame(draw as any as number)
     }
-    if (c.animate !== false) {
-      requestAnimationFrame(draw);
-    }
-    context.globalCompositeOperation = "source-over";
+    requestAnimationFrame(draw);
     context.fillStyle = gradient;
     context.fillRect(0, 0, width, height);
-    context.globalCompositeOperation = c.compose || "source-over";
-    const bubbleColours = ['#E98857', '#6532B4', '#301661', '#C62965']
+    context.globalCompositeOperation = "source-over";
+    const bubbleColours = ['#E98857', '#6532B4', '#C62965']
     bubbles.forEach((bubble, i) => {
       const rgradient = context.createRadialGradient(bubble.x, bubble.y, 0, bubble.x, bubble.y, bubble.r);
-      rgradient.addColorStop(0, bubbleColours[i]);
-      rgradient.addColorStop(1, `${bubbleColours[i]}00`);
+      rgradient.addColorStop(0, `${bubbleColours[i % bubbleColours.length]}`);
+      rgradient.addColorStop(0.7, `${bubbleColours[i % bubbleColours.length]}00`);
 
       context.beginPath();
       context.arc(bubble.x, bubble.y, bubble.r, 0, Math.PI * 2);
@@ -80,10 +72,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     // first
     if (effectCalled.current) return;
-    console.log('yolo');
-    bubbly({
-      bubbles: 2
-    })
+    bubbly()
     effectCalled.current = true;
 
     return () => {
@@ -164,7 +153,7 @@ const Home: NextPage = () => {
           </section>
           <section className="mt-12">
             <div className="">
-              <div className="px-60 py-14 mb-40 border-white rounded-[40px] border" style={{ background: "linear-gradient(107.82deg, rgba(80, 29, 67, 0.246) 4.16%, rgba(34, 29, 50, 0.6) 29.8%, rgba(34, 29, 50, 0.6) 62.96%, rgba(80, 29, 67, 0.348) 96.69%)" }}>
+              <div className="px-20 lg:px-60 py-14 mb-40 border-white rounded-[40px] border" style={{ background: "linear-gradient(107.82deg, rgba(80, 29, 67, 0.246) 4.16%, rgba(34, 29, 50, 0.6) 29.8%, rgba(34, 29, 50, 0.6) 62.96%, rgba(80, 29, 67, 0.348) 96.69%)" }}>
                 <h2 className="text-5xl font-semibold capitalize text-center bg-gradient-to-r from-[#FFFFFF] via-[#FFA4CB] to-[#9B8EF8] bg-clip-text text-transparent">Cultural Learning <br /> Gamified</h2>
               </div>
             </div>
@@ -280,7 +269,7 @@ const Home: NextPage = () => {
           </section>
           <section className="mt-12">
             <div className="">
-              <div className="px-60 py-14 mb-40 border-white rounded-[40px] border" style={{ background: "linear-gradient(107.82deg, rgba(80, 29, 67, 0.246) 4.16%, rgba(34, 29, 50, 0.6) 29.8%, rgba(34, 29, 50, 0.6) 62.96%, rgba(80, 29, 67, 0.348) 96.69%)" }}>
+              <div className="px-20 lg:px-60 py-14 mb-40 border-white rounded-[40px] border" style={{ background: "linear-gradient(107.82deg, rgba(80, 29, 67, 0.246) 4.16%, rgba(34, 29, 50, 0.6) 29.8%, rgba(34, 29, 50, 0.6) 62.96%, rgba(80, 29, 67, 0.348) 96.69%)" }}>
                 <h2 className="text-5xl font-semibold capitalize text-center bg-gradient-to-r from-[#FFFFFF] via-[#FFA4CB] to-[#9B8EF8] bg-clip-text text-transparent">Join Waitlist</h2>
 
                 <input
