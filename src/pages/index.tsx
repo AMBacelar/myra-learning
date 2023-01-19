@@ -360,8 +360,8 @@ const Home: NextPage = () => {
           </section>
         </main>
         <footer>
-          <div className="flex items-center justify-between bg-[#00000066] px-10 py-5 text-white">
-            <div className="">© 2023 Myra Learning Labs</div>
+          <div className="flex flex-col items-center justify-between bg-[#00000066] px-10 py-5 text-white">
+            <div className="mb-3">© 2023 Myra Learning Labs</div>
             <div className="">
               <a>Privacy Policy </a>
               {" | "}
