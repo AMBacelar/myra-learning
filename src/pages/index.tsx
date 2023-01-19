@@ -166,11 +166,11 @@ const Home: NextPage = () => {
                           "linear-gradient(107.82deg, rgba(232, 127, 5, 0.37) -3.43%, rgba(145, 106, 49, 0.56) 29.8%, rgba(108, 34, 122, 0.57) 62.96%, #9641BD 101.38%)",
                       }}
                     >
-                      <h2 className="text-7xl font-semibold capitalize text-white">
+                      <h2 className="text-3xl font-semibold capitalize text-white md:text-6xl">
                         Play The World
                       </h2>
 
-                      <p className="my-5 text-4xl text-white">
+                      <p className="my-5 text-2xl text-white md:text-3xl">
                         LEARN SOMETHING NEW
                       </p>
                       <a
