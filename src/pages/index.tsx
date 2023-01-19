@@ -92,7 +92,7 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="absolute md:relative">
       <Head>
         <title>Myra Learning</title>
         <link rel="icon" href="/favicon.ico" />
@@ -369,7 +369,7 @@ const Home: NextPage = () => {
           </div>
         </footer>
       </div>
-    </>
+    </div>
   );
 };
 
