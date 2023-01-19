@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @next/next/no-img-element */
 import { type NextPage } from "next";
 import Head from "next/head";
@@ -10,7 +11,7 @@ const bubbly = () => {
   let height = canvas.height;
   canvas.setAttribute(
     "style",
-    "position:fixed;z-index:-1;left:0;top:0;min-width:100vw;min-height:100vh;"
+    "position:fixed;z-index:-1;left:0;top:0;min-width:100vw;min-height:100%;"
   );
   width = canvas.width = window.innerWidth;
   height = canvas.height = window.innerHeight * 1.5;
@@ -34,7 +35,7 @@ const bubbly = () => {
   }
   (function draw() {
     if (canvas.parentNode === null) {
-      return cancelAnimationFrame(draw as any as number);
+      return cancelAnimationFrame(draw as never as number);
     }
     requestAnimationFrame(draw);
     context.fillStyle = gradient;
@@ -174,7 +175,7 @@ const Home: NextPage = () => {
                       </p>
                       <a
                         href="#"
-                        className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border bg-[#FFFFFF26] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#FFFFFF77]"
+                        className="inline-flex items-center justify-center whitespace-nowrap rounded-md border bg-[#FFFFFF26] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#FFFFFF77]"
                       >
                         Join Waitlist
                       </a>
