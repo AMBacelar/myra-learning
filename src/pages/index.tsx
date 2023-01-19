@@ -13,7 +13,7 @@ const bubbly = () => {
     "position:fixed;z-index:-1;left:0;top:0;min-width:100vw;min-height:100vh;"
   );
   width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
+  height = canvas.height = window.innerHeight * 1.5;
   document.body.appendChild(canvas);
   const context = canvas.getContext("2d")!;
   const gradient = context.createLinearGradient(0, 0, 0, height);
@@ -128,18 +128,18 @@ const Home: NextPage = () => {
             <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
               <div>
                 <div>
-                  <p className="mt-6 text-lg leading-8 text-white sm:text-center">
+                  <p className="mt-6 text-center text-lg leading-8 text-white">
                     <strong>
                       THE WORLD’S #1 AI POWERED CULTURE LEARNING APP
                     </strong>
                   </p>
-                  <p className="mt-6 bg-gradient-to-r from-[#FFFFFF] to-[#AC91F0] bg-clip-text text-8xl text-transparent sm:text-center">
+                  <p className="mt-6 bg-gradient-to-r from-[#FFFFFF] to-[#AC91F0] bg-clip-text text-center text-8xl text-transparent">
                     <strong>65,000+</strong>
                   </p>
-                  <p className="mt-6 text-4xl leading-8 text-white sm:text-center">
+                  <p className="mt-6 text-center text-4xl leading-8 text-white">
                     <strong>Users on the waitlist</strong>
                   </p>
-                  <p className="mt-6 text-lg leading-8 text-white sm:text-center">
+                  <p className="mt-6 text-center text-lg leading-8 text-white">
                     A BETTER LEARNING EXPERIENCE FOR THE NEXT GENERATION
                   </p>
                 </div>
