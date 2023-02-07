@@ -398,81 +398,33 @@ const Home: NextPage = () => {
                   <div className="relative my-6 mx-auto w-auto max-w-3xl">
                     {/*content*/}
                     {modalType === ModalType.form && (
-                      <div className="relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none">
+                      <div className="relative flex w-full flex-col rounded-lg border-0 bg-transparent shadow-lg outline-none focus:outline-none">
                         {/*header*/}
-                        <div className="flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5">
-                          <h3 className="text-3xl font-semibold">
-                            Join Waitlist
-                          </h3>
+                        <div className="flex items-start justify-between rounded-t pr-5">
                           <button
                             className="float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black "
                             onClick={() => setShowModal(false)}
                           >
-                            <span className="block h-6 w-6 bg-transparent text-2xl text-black">
+                            <span className="block h-6 w-6 bg-transparent text-2xl text-white">
                               ×
                             </span>
                           </button>
                         </div>
                         {/*body*/}
-                        <div className="relative flex-auto p-6">
-                          <form
-                            id="sib-form"
-                            method="POST"
-                            action="https://af34d190.sibforms.com/serve/MUIEAE5BOLg6Qo_xvNi4B9NhZ7CWQXtxBbZRTs9KZSv3QGMkiJL-jiol8jO_hH_PuB9L_vnlD9ZxOlV21qZaGn0X8eZI0Lp58HVShB0uYTQsdrNdjFXQGWGhmeUsTEsiaFy0oHN4MT81M_W3UxkCWZD7CEwi5EAQyKcNGknv80l1GSDhHp-iH3o_dLE8fFFwgBesEm1_evpqBDMe"
-                          >
-                            <div>
-                              <div className="sib-input sib-form-block">
-                                <div className="form__entry entry_block">
-                                  <div className="form__label-row ">
-                                    <div className="entry__field">
-                                      <input
-                                        className="my-3 block w-full rounded-2xl border border-[#00000020] bg-[#00000012] p-6 pl-7 pr-12 text-white focus:border-white focus:ring-indigo-500 sm:text-sm"
-                                        type="text"
-                                        id="EMAIL"
-                                        name="EMAIL"
-                                        autoComplete="email"
-                                        placeholder="you@mail.com"
-                                        data-required="true"
-                                        required
-                                      />
-                                    </div>
-                                  </div>
-
-                                  <label className="entry__error entry__error--primary"></label>
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <div className="sib-form-block">
-                                <button
-                                  className="mr-1 mb-1 mt-3 rounded bg-emerald-500 px-6 py-3 text-sm font-bold uppercase text-white shadow transition-all duration-150 ease-linear hover:shadow-lg active:bg-emerald-600"
-                                  form="sib-form"
-                                  type="submit"
-                                >
-                                  <svg
-                                    className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
-                                    viewBox="0 0 512 512"
-                                  >
-                                    <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
-                                  </svg>
-                                  SUBSCRIBE
-                                </button>
-                              </div>
-                            </div>
-                            <input
-                              type="text"
-                              name="email_address_check"
-                              value=""
-                              className="input--hidden"
-                            />
-                            <input type="hidden" name="locale" value="en" />
-                            <input
-                              type="hidden"
-                              name="html_type"
-                              value="simple"
-                            />
-                          </form>
-                        </div>
+                        <iframe
+                          width="540"
+                          height="355"
+                          src="https://af34d190.sibforms.com/serve/MUIEABW5ihfir3galAqbd4hJoVpIyEMgeBRPatSVqYC1LJ1Ys8g_r0Q-8PZYpHMzMGvH01_vgzwekKc2_iqssZGy4OhObw38nT6yAUCVn9jNu2irLbqqcR7ZrX5q4xcZObWWLI7Y9e3JZuERBpRdyEtNsGyCPRIBdcqmuqBD8OyNV-vUT2FfF6YD3eogUvyavCUq9NFW5Xpq-Emc"
+                          frameBorder="0"
+                          scrolling="auto"
+                          allowFullScreen
+                          style={{
+                            display: "block",
+                            marginLeft: "auto",
+                            marginRight: "auto",
+                            maxWidth: "100%",
+                          }}
+                        ></iframe>
                       </div>
                     )}
                     {modalType === ModalType.video && (
