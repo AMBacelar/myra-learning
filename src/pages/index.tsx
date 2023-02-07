@@ -489,14 +489,15 @@ const Home: NextPage = () => {
                           </button>
                         </div>
                         {/*body*/}
-                        <iframe
-                          width="700"
-                          height="400"
-                          src="https://www.youtube.com/embed/sBYHvuoQTLo"
-                          title="YouTube video player"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                        ></iframe>
+                        <div className="relative h-72 w-96 sm:h-[420px] sm:w-[600px]">
+                          <iframe
+                            className="absolute top-0 left-0 h-full w-full"
+                            src="https://www.youtube.com/embed/sBYHvuoQTLo"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
                       </div>
                     )}
                   </div>
