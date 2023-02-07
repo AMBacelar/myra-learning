@@ -386,7 +386,7 @@ const Home: NextPage = () => {
             </div>
           </section>
           <section className="mt-12">
-            <div className="">
+            <div className="container mx-auto px-10">
               <div
                 className="column mb-40 flex flex-col rounded-[40px] border border-white px-20 py-14 lg:px-60"
                 style={{
