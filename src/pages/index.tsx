@@ -169,7 +169,7 @@ const Home: NextPage = () => {
                     />
                   </button>
                   <p className="mt-6 text-center text-lg leading-8 text-white">
-                    A BETTER LEARNING EXPERIENCE FOR THE NEXT GENERATION
+                    A NEXT GEN LEARNING EXPERIENCE
                   </p>
                 </div>
               </div>
@@ -188,7 +188,7 @@ const Home: NextPage = () => {
                 <div className="w-full space-y-12 lg:w-1/2 ">
                   <div className="md:-ml-14 md:flex md:items-start">
                     <div
-                      className="mt-4 rounded-[40px] border-transparent py-8 pl-14 pr-14 md:mx-4 md:mt-0 "
+                      className="mt-4 rounded-[40px] border-transparent py-8 pl-14 pr-14 text-center md:mx-4 md:mt-0 lg:text-left"
                       style={{
                         background:
                           "linear-gradient(107.82deg, rgba(232, 127, 5, 0.37) -3.43%, rgba(145, 106, 49, 0.56) 29.8%, rgba(108, 34, 122, 0.57) 62.96%, #9641BD 101.38%)",
@@ -199,7 +199,7 @@ const Home: NextPage = () => {
                       </h2>
 
                       <p className="my-5 text-2xl text-white md:text-3xl">
-                        LEARN SOMETHING NEW
+                        EXPLORE SOMETHING NEW
                       </p>
                       <button
                         onClick={() => {
@@ -339,7 +339,7 @@ const Home: NextPage = () => {
                 <div className="w-96 space-y-12">
                   <div className="md:-mx-4 md:flex md:items-start">
                     <div className="mt-4 md:mx-4 md:mt-0">
-                      <p className="mt-3 text-amber-600">COMING SOON</p>
+                      <p className="mt-3 text-white">COMING SOON</p>
                       <h3 className="text-4xl font-semibold capitalize text-white">
                         Empathy Boost!
                       </h3>
@@ -351,7 +351,7 @@ const Home: NextPage = () => {
                         Supported by research Myra games are designed in
                         collaboration with experts and backed by independent
                         analysis to improve empathy skills and social
-                        understamdings!
+                        understandings!
                       </p>
                     </div>
                   </div>
@@ -376,7 +376,7 @@ const Home: NextPage = () => {
                 }}
               >
                 <h2 className="bg-gradient-to-r from-[#FFFFFF] via-[#FFA4CB] to-[#9B8EF8] bg-clip-text text-center text-5xl font-semibold capitalize text-transparent">
-                  Join Waitlist
+                  Explore the Culture
                 </h2>
 
                 <button
