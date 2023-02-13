@@ -7,8 +7,8 @@ import { useEffect, useRef, useState } from "react";
 const bubbly = () => {
   const r = () => Math.random();
   const canvas = document.createElement("canvas");
-  let width = canvas.width = window.innerWidth * 1;
-  let height = canvas.height = window.innerHeight * 1.5;
+  const width = canvas.width = window.innerWidth * 1;
+  const height = canvas.height = window.innerHeight * 1.5;
   canvas.setAttribute(
     "style",
     "position:fixed;z-index:-1;left:0;top:0;min-width:100%;min-height:100%;"
