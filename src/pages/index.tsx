@@ -7,20 +7,18 @@ import { useEffect, useRef, useState } from "react";
 const bubbly = () => {
   const r = () => Math.random();
   const canvas = document.createElement("canvas");
-  let width = canvas.width;
-  let height = canvas.height;
+  let width = canvas.width = window.innerWidth * 1;
+  let height = canvas.height = window.innerHeight * 1.5;
   canvas.setAttribute(
     "style",
-    "position:fixed;z-index:-1;left:0;top:0;min-width:100vw;min-height:100%;"
+    "position:fixed;z-index:-1;left:0;top:0;min-width:100%;min-height:100%;"
   );
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight * 1.5;
-  document.body.appendChild(canvas);
   const context = canvas.getContext("2d")!;
   const gradient = context.createLinearGradient(0, 0, 0, height);
   gradient.addColorStop(0, "#E88658");
   gradient.addColorStop(0.5, "#B7528C");
   gradient.addColorStop(1, "#09041C");
+  document.body.appendChild(canvas);
   const nrBubbles = 10;
   const bubbles = [];
 
@@ -93,7 +91,6 @@ const Home: NextPage = () => {
     if (effectCalled.current) return;
     bubbly();
     effectCalled.current = true;
-
     return () => {
       // second
     };
