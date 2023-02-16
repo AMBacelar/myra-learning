@@ -2,80 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { type NextPage } from "next";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
-
-const bubbly = () => {
-  const r = () => Math.random();
-  const canvas = document.createElement("canvas");
-  const width = canvas.width = window.innerWidth * 1;
-  const height = canvas.height = window.innerHeight * 1.5;
-  canvas.setAttribute(
-    "style",
-    "position:fixed;z-index:-1;left:0;top:0;min-width:100%;min-height:100%;"
-  );
-  const context = canvas.getContext("2d")!;
-  const gradient = context.createLinearGradient(0, 0, 0, height);
-  gradient.addColorStop(0, "#E88658");
-  gradient.addColorStop(0.5, "#B7528C");
-  gradient.addColorStop(1, "#09041C");
-  document.body.appendChild(canvas);
-  const nrBubbles = 10;
-  const bubbles = [];
-
-  for (let i = 0; i < nrBubbles; i++) {
-    bubbles.push({
-      x: r() * width, // x-position
-      y: r() * height, // y-position
-      r: 20 + (r() * width) / 2, // radius
-      a: r() * Math.PI * 2, // angle
-      v: 0.6 + r() * 0.5, // velocity
-    });
-  }
-  (function draw() {
-    if (canvas.parentNode === null) {
-      return cancelAnimationFrame(draw as never as number);
-    }
-    requestAnimationFrame(draw);
-    context.fillStyle = gradient;
-    context.fillRect(0, 0, width, height);
-    context.globalCompositeOperation = "source-over";
-    const bubbleColours = ["#E98857", "#6532B4", "#C62965"];
-    bubbles.forEach((bubble, i) => {
-      const bubbleColour =
-        bubbleColours[i % bubbleColours.length] || (bubbleColours[0] as string);
-      const rgradient = context.createRadialGradient(
-        bubble.x,
-        bubble.y,
-        0,
-        bubble.x,
-        bubble.y,
-        bubble.r
-      );
-      rgradient.addColorStop(0, `${bubbleColour}`);
-      rgradient.addColorStop(0.7, `${bubbleColour}00`);
-
-      context.beginPath();
-      context.arc(bubble.x, bubble.y, bubble.r, 0, Math.PI * 2);
-      context.fillStyle = rgradient;
-      context.fill();
-      // update positions for next draw
-      bubble.x += Math.cos(bubble.a) * bubble.v;
-      bubble.y += Math.sin(bubble.a) * bubble.v;
-      if (bubble.x - bubble.r > width) {
-        bubble.x = -bubble.r;
-      }
-      if (bubble.x + bubble.r < 0) {
-        bubble.x = width + bubble.r;
-      }
-      if (bubble.y - bubble.r > height) {
-        bubble.y = -bubble.r;
-      }
-      if (bubble.y + bubble.r < 0) {
-        bubble.y = height + bubble.r;
-      }
-    });
-  })();
-};
+import Link from "next/link";
+import { useState } from "react";
 
 enum ModalType {
   video,
@@ -83,19 +11,8 @@ enum ModalType {
 }
 
 const Home: NextPage = () => {
-  const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<ModalType>();
-  const effectCalled = useRef(false);
-  useEffect(() => {
-    // first
-    if (effectCalled.current) return;
-    bubbly();
-    effectCalled.current = true;
-    return () => {
-      // second
-    };
-  }, []);
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="absolute md:relative">
       <Head>
@@ -131,14 +48,16 @@ const Home: NextPage = () => {
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
-                <a href="#">
+                <Link className="flex" href="/">
                   <img
                     className="h-8 w-auto sm:h-10"
                     src="/static/images/purple-logo.png"
                     alt=""
                   />
-                </a>
-                <span className="ml-3 text-3xl text-white">Myra Learning</span>
+                  <span className="ml-3 text-3xl text-white">
+                    Myra Learning
+                  </span>
+                </Link>
               </div>
               <nav className="hidden space-x-10 md:flex"></nav>
               <div className="flex flex-1 items-center justify-end lg:w-0">
@@ -149,7 +68,7 @@ const Home: NextPage = () => {
                   }}
                   className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border bg-[#FFFFFF26] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#FFFFFF77]"
                 >
-                  Waitlist
+                  Join Waitlist
                 </button>
               </div>
             </div>
@@ -479,9 +398,9 @@ const Home: NextPage = () => {
           <div className="flex flex-col items-center justify-between bg-[#00000066] px-10 py-5 text-white">
             <div className="mb-3">© 2023 Myra Learning Labs</div>
             <div className="">
-              <a>Privacy Policy </a>
+              <Link href="/privacy">Privacy Policy</Link>
               {" | "}
-              <a> Terms & Conditions</a>
+              <Link href="/terms">T&C&apos;s</Link>
             </div>
           </div>
         </footer>
