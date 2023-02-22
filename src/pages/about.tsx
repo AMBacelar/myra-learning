@@ -43,7 +43,7 @@ const Home: NextPage = () => {
             <div className="mx-auto max-w-3xl pt-6 pb-32">
               <div>
                 <div>
-                  <p className="mt-6 bg-gradient-to-r from-[#FFFFFF] to-[#AC91F0] bg-clip-text text-center text-5xl text-transparent">
+                  <p className="mt-6 bg-gradient-to-r from-[#FFFFFF] to-[#AC91F0] bg-clip-text text-center text-3xl text-transparent md:text-5xl">
                     <strong>About Myra Learning Labs</strong>
                   </p>
                 </div>
