@@ -3,6 +3,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { Header } from "../components/header";
 
 const Home: NextPage = () => {
   const paragraphStyle = "my-4";
@@ -39,26 +40,6 @@ const Home: NextPage = () => {
         />
       </Head>
       <div className="">
-        <div className="relative">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
-              <div className="flex justify-start lg:w-0 lg:flex-1">
-                <Link className="flex" href="/">
-                  <img
-                    className="h-8 w-auto sm:h-10"
-                    src="/static/images/purple-logo.png"
-                    alt=""
-                  />
-                  <span className="ml-3 text-3xl text-white">
-                    Myra Learning
-                  </span>
-                </Link>
-              </div>
-              <nav className="hidden space-x-10 md:flex"></nav>
-              <div className="flex flex-1 items-center justify-end lg:w-0"></div>
-            </div>
-          </div>
-        </div>
         <main className="flex min-h-screen flex-col items-center justify-center ">
           <div className="relative px-6 lg:px-8">
             <div className="mx-auto max-w-3xl pt-6 pb-32">

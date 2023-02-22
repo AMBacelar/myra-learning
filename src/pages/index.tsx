@@ -3,16 +3,11 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
-
-enum ModalType {
-  video,
-  form,
-}
+import { useContext } from "react";
+import { ModalContext, ModalType } from "./_app";
 
 const Home: NextPage = () => {
-  const [modalType, setModalType] = useState<ModalType>();
-  const [showModal, setShowModal] = useState(false);
+  const { setModalType, setShowModal } = useContext(ModalContext);
   return (
     <div className="absolute md:relative">
       <Head>
@@ -44,36 +39,6 @@ const Home: NextPage = () => {
         />
       </Head>
       <div className="">
-        <div className="relative">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
-              <div className="flex justify-start lg:w-0 lg:flex-1">
-                <Link className="flex" href="/">
-                  <img
-                    className="h-8 w-auto sm:h-10"
-                    src="/static/images/purple-logo.png"
-                    alt=""
-                  />
-                  <span className="ml-3 text-3xl text-white">
-                    Myra Learning
-                  </span>
-                </Link>
-              </div>
-              <nav className="hidden space-x-10 md:flex"></nav>
-              <div className="flex flex-1 items-center justify-end lg:w-0">
-                <button
-                  onClick={() => {
-                    setModalType(ModalType.form);
-                    setShowModal(true);
-                  }}
-                  className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border bg-[#FFFFFF26] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#FFFFFF77]"
-                >
-                  Join Waitlist
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
         <main className="flex min-h-screen flex-col items-center justify-center ">
           <div className="relative px-6 lg:px-8">
             <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
@@ -326,73 +291,6 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          {showModal && (
-            <>
-              <>
-                <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-[#00000080] outline-none focus:outline-none">
-                  <div className="relative my-6 mx-auto w-auto max-w-3xl">
-                    {/*content*/}
-                    {modalType === ModalType.form && (
-                      <div className="relative flex w-full flex-col rounded-lg border-0 bg-transparent shadow-lg outline-none focus:outline-none">
-                        {/*header*/}
-                        <div className="flex items-start justify-between rounded-t pr-5">
-                          <button
-                            className="float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black "
-                            onClick={() => setShowModal(false)}
-                          >
-                            <span className="block h-6 w-6 bg-transparent text-2xl text-white">
-                              ×
-                            </span>
-                          </button>
-                        </div>
-                        {/*body*/}
-                        <iframe
-                          width="540"
-                          height="355"
-                          src="https://af34d190.sibforms.com/serve/MUIEABW5ihfir3galAqbd4hJoVpIyEMgeBRPatSVqYC1LJ1Ys8g_r0Q-8PZYpHMzMGvH01_vgzwekKc2_iqssZGy4OhObw38nT6yAUCVn9jNu2irLbqqcR7ZrX5q4xcZObWWLI7Y9e3JZuERBpRdyEtNsGyCPRIBdcqmuqBD8OyNV-vUT2FfF6YD3eogUvyavCUq9NFW5Xpq-Emc"
-                          frameBorder="0"
-                          scrolling="auto"
-                          allowFullScreen
-                          style={{
-                            display: "block",
-                            marginLeft: "auto",
-                            marginRight: "auto",
-                            maxWidth: "100%",
-                          }}
-                        ></iframe>
-                      </div>
-                    )}
-                    {modalType === ModalType.video && (
-                      <div className="relative flex w-full flex-col rounded-lg border-0 bg-transparent shadow-lg outline-none focus:outline-none">
-                        {/*header*/}
-                        <div className="flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5">
-                          <button
-                            className="float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black"
-                            onClick={() => setShowModal(false)}
-                          >
-                            <span className="block h-6 w-6 bg-transparent text-2xl text-white">
-                              ×
-                            </span>
-                          </button>
-                        </div>
-                        {/*body*/}
-                        <div className="relative h-72 w-96 sm:h-[420px] sm:w-[600px]">
-                          <iframe
-                            className="absolute top-0 left-0 h-full w-full"
-                            src="https://www.youtube.com/embed/sBYHvuoQTLo"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                          ></iframe>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
-              </>
-            </>
-          )}
         </main>
         <footer>
           <div className="flex flex-col items-center justify-between bg-[#00000066] px-10 py-5 text-white">

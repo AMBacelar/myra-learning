@@ -1,5 +1,7 @@
 import { type AppType } from "next/dist/shared/lib/utils";
-import { useEffect, useRef } from "react";
+import type { Dispatch, SetStateAction } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
+import { Header } from "../components/header";
 import "../styles/globals.css";
 
 const bubbly = () => {
@@ -75,7 +77,32 @@ const bubbly = () => {
   })();
 };
 
+export enum ModalType {
+  video,
+  form,
+}
+
+const defaultContextValues = {
+  modalType: ModalType.form,
+  showModal: false,
+  setModalType: () => {
+    /** noop */
+  },
+  setShowModal: () => {
+    /** noop */
+  },
+};
+
+export const ModalContext = createContext<{
+  modalType: ModalType;
+  showModal: boolean;
+  setModalType: Dispatch<SetStateAction<ModalType>>;
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+}>(defaultContextValues);
+
 const MyApp: AppType = ({ Component, pageProps }) => {
+  const [modalType, setModalType] = useState<ModalType>(ModalType.form);
+  const [showModal, setShowModal] = useState(false);
   const effectCalled = useRef(false);
   useEffect(() => {
     // first
@@ -86,7 +113,82 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       // second
     };
   }, []);
-  return <Component {...pageProps} />;
+
+  return (
+    <ModalContext.Provider
+      value={{ modalType, showModal, setModalType, setShowModal }}
+    >
+      <Header />
+      <Component {...pageProps} />
+      {showModal && (
+        <>
+          <>
+            <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-[#00000080] outline-none focus:outline-none">
+              <div className="relative my-6 mx-auto w-auto max-w-3xl">
+                {/*content*/}
+                {modalType === ModalType.form && (
+                  <div className="relative flex w-full flex-col rounded-lg border-0 bg-transparent shadow-lg outline-none focus:outline-none">
+                    {/*header*/}
+                    <div className="flex items-start justify-between rounded-t pr-5">
+                      <button
+                        className="float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black "
+                        onClick={() => setShowModal(false)}
+                      >
+                        <span className="block h-6 w-6 bg-transparent text-2xl text-white">
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    {/*body*/}
+                    <iframe
+                      width="540"
+                      height="355"
+                      src="https://af34d190.sibforms.com/serve/MUIEABW5ihfir3galAqbd4hJoVpIyEMgeBRPatSVqYC1LJ1Ys8g_r0Q-8PZYpHMzMGvH01_vgzwekKc2_iqssZGy4OhObw38nT6yAUCVn9jNu2irLbqqcR7ZrX5q4xcZObWWLI7Y9e3JZuERBpRdyEtNsGyCPRIBdcqmuqBD8OyNV-vUT2FfF6YD3eogUvyavCUq9NFW5Xpq-Emc"
+                      frameBorder="0"
+                      scrolling="auto"
+                      allowFullScreen
+                      style={{
+                        display: "block",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        maxWidth: "100%",
+                      }}
+                    ></iframe>
+                  </div>
+                )}
+                {modalType === ModalType.video && (
+                  <div className="relative flex w-full flex-col rounded-lg border-0 bg-transparent shadow-lg outline-none focus:outline-none">
+                    {/*header*/}
+                    <div className="flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5">
+                      <button
+                        className="float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black"
+                        onClick={() => setShowModal(false)}
+                      >
+                        <span className="block h-6 w-6 bg-transparent text-2xl text-white">
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    {/*body*/}
+                    <div className="relative h-72 w-96 sm:h-[420px] sm:w-[600px]">
+                      <iframe
+                        className="absolute top-0 left-0 h-full w-full"
+                        src="https://www.youtube.com/embed/sBYHvuoQTLo"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+          </>
+        </>
+      )}
+    </ModalContext.Provider>
+  );
 };
 
 export default MyApp;
