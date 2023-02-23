@@ -6,19 +6,22 @@ import { ModalContext, ModalType } from "../../pages/_app";
 export const Header = () => {
   const { setModalType, setShowModal } = useContext(ModalContext);
   const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <>
-      <div className="relative">
+      <div className="relative w-full">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start md:w-0 md:flex-1">
-              <Link className="flex" href="/">
+              <Link className="flex items-center" href="/">
                 <img
                   className="h-8 w-auto sm:h-10"
                   src="/static/images/purple-logo.png"
                   alt=""
                 />
-                <span className="ml-3 text-3xl text-white">Myra Learning</span>
+                <span className="ml-3 text-sm text-white md:text-3xl">
+                  Myra Learning
+                </span>
               </Link>
             </div>
             <div className="flex md:hidden">
@@ -56,7 +59,7 @@ export const Header = () => {
                     setModalType(ModalType.form);
                     setShowModal(true);
                   }}
-                  className="ml-4 inline-flex items-center justify-center whitespace-nowrap rounded-md border bg-[#FFFFFF26] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#FFFFFF77]"
+                  className="ml-4 inline-flex items-center justify-center whitespace-nowrap rounded-md border bg-[#FFFFFF26] px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-[#FFFFFF77] md:text-base"
                 >
                   Join Waitlist
                 </button>
@@ -69,8 +72,11 @@ export const Header = () => {
         className={`navbar-menu relative z-50 ${showSidebar ? "" : "hidden"}`}
       >
         <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-        <nav className="fixed top-0 left-0 bottom-0 flex w-5/6 max-w-sm flex-col overflow-y-auto border-r bg-[#00000088] py-6 px-6">
-          <div className="mb-8 flex items-center justify-end">
+        <nav
+          className="fixed top-0 left-0 bottom-0 flex w-full flex-col overflow-y-auto bg-gradient-to-b from-[#E88658] via-[#B7528C]
+to-[#09041C] py-6 px-6"
+        >
+          <div className="mb-16 flex items-center justify-end">
             <button
               className="navbar-close"
               onClick={() => setShowSidebar(false)}
@@ -95,18 +101,29 @@ export const Header = () => {
             <ul>
               <li className="mb-1">
                 <Link
-                  className="block rounded p-4 text-sm font-semibold text-gray-400 hover:bg-orange-50 hover:text-orange-600"
+                  className="block rounded p-4 text-center text-lg font-semibold text-white hover:bg-orange-50 hover:text-orange-600"
+                  href="/"
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="mb-1">
+                <Link
+                  className="block rounded p-4 text-center text-lg font-semibold text-white hover:bg-orange-50 hover:text-orange-600"
                   href="/about"
+                  onClick={() => setShowSidebar(false)}
                 >
                   About
                 </Link>
               </li>
               <li className="mb-1">
                 <a
-                  className="block rounded p-4 text-sm font-semibold text-gray-400 hover:bg-orange-50 hover:text-orange-600"
+                  className="block rounded p-4 text-center text-lg font-semibold text-white hover:bg-orange-50 hover:text-orange-600"
                   href="https://join.com/companies/myralearning"
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => setShowSidebar(false)}
                 >
                   Careers
                 </a>
