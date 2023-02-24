@@ -9,7 +9,7 @@ import { ModalContext, ModalType } from "./_app";
 const Home: NextPage = () => {
   const { setModalType, setShowModal } = useContext(ModalContext);
   return (
-    <div className="absolute md:relative">
+    <div className="absolute w-full md:relative">
       <Head>
         <title>Myra Learning</title>
         <link
@@ -38,10 +38,10 @@ const Home: NextPage = () => {
           href="https://sibforms.com/forms/end-form/build/sib-styles.css"
         />
       </Head>
-      <div className="">
-        <main className="flex min-h-screen flex-col items-center justify-center ">
-          <div className="relative px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
+      <div className="w-full">
+        <main className="flex w-full flex-col items-center justify-center px-6 lg:px-8">
+          <div className="relative">
+            <div className="mx-auto pt-20 pb-32 sm:pt-48 sm:pb-40">
               <div>
                 <div>
                   <p className="mt-6 text-center text-lg leading-8 text-white">
@@ -116,7 +116,8 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="mt-12">
+          <div className="mt-12" />
+          <section>
             <div className="container mx-auto px-10">
               <div
                 className="mb-40 rounded-[40px] border border-white px-20 py-14 lg:px-60"
@@ -131,10 +132,11 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="mb-4">
+          <div className="mt-4" />
+          <section>
             <div className="container mx-auto px-10">
               <div className="lg:flex lg:items-center">
-                <div className="w-[28rem] space-y-12">
+                <div className="space-y-12 md:w-[28rem]">
                   <div className="md:-mx-4 md:flex md:items-start">
                     <div className="mt-4 md:mx-4 md:mt-0 lg:mr-10">
                       <p className="mt-3 text-xl text-white">FEATURES</p>
@@ -152,7 +154,7 @@ const Home: NextPage = () => {
                 </div>
                 <div className="lg:flex lg:w-1/2 lg:items-center lg:justify-center">
                   <img
-                    className="w-[28rem]"
+                    className="md:w-[28rem]"
                     src="/static/images/hands-and-mobile.png"
                     alt=""
                   />
@@ -160,17 +162,18 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="mb-14">
+          <div className="mt-14" />
+          <section>
             <div className="container mx-auto px-10">
               <div className="lg:flex lg:items-center">
                 <div className="mr-10 hidden lg:flex">
                   <img
-                    className="w-[28rem]"
+                    className="md:w-[28rem]"
                     src="/static/images/ai-brain.png"
                     alt=""
                   />
                 </div>
-                <div className="w-[28rem] space-y-12">
+                <div className="space-y-12 md:w-[28rem]">
                   <div className="md:-mx-4 md:flex md:items-start">
                     <div className="mt-4 md:mx-4 md:mt-0">
                       <h3 className="text-4xl font-semibold capitalize text-white">
@@ -187,7 +190,7 @@ const Home: NextPage = () => {
                 </div>
                 <div className="mt-10 lg:hidden">
                   <img
-                    className="w-[22rem]"
+                    className="md:w-[22rem]"
                     src="/static/images/ai-brain.png"
                     alt=""
                   />
@@ -195,10 +198,10 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="">
+          <section>
             <div className="container mx-auto px-10">
               <div className="lg:flex lg:items-center">
-                <div className="w-96 space-y-12 ">
+                <div className="space-y-12 md:w-96 ">
                   <div className="md:-mx-4 md:flex md:items-start">
                     <div className="mt-4 md:mx-4 md:mt-0">
                       <h3 className="text-4xl font-semibold capitalize text-white">
@@ -218,7 +221,7 @@ const Home: NextPage = () => {
                 </div>
                 <div className="lg:flex lg:w-1/2 lg:items-center lg:justify-center">
                   <img
-                    className="w-[28rem] xl:w-[34rem] "
+                    className="md:w-[28rem] xl:w-[34rem] "
                     src="/static/images/candy-house.png"
                     alt=""
                   />
@@ -226,17 +229,17 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="">
+          <section>
             <div className="container mx-auto px-10">
               <div className="lg:flex lg:items-center">
                 <div className="hidden lg:flex lg:w-1/2 lg:items-center lg:justify-center">
                   <img
-                    className="w-[28rem] xl:w-[34rem] "
+                    className="md:w-[28rem] xl:w-[34rem] "
                     src="/static/images/empath-heart-box.png"
                     alt=""
                   />
                 </div>
-                <div className="w-96 space-y-12">
+                <div className="space-y-12 md:w-96">
                   <div className="md:-mx-4 md:flex md:items-start">
                     <div className="mt-4 md:mx-4 md:mt-0">
                       <p className="mt-3 text-white">COMING SOON</p>
@@ -266,19 +269,19 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
-          <section className="mt-12">
+          <div className="mt-12" />
+          <section>
             <div className="container mx-auto px-10">
               <div
-                className="column mb-40 flex flex-col rounded-[40px] border border-white px-20 py-14 lg:px-60"
+                className="mb-40 rounded-[40px] border border-white px-20 py-14 lg:px-60"
                 style={{
                   background:
                     "linear-gradient(107.82deg, rgba(80, 29, 67, 0.246) 4.16%, rgba(34, 29, 50, 0.6) 29.8%, rgba(34, 29, 50, 0.6) 62.96%, rgba(80, 29, 67, 0.348) 96.69%)",
                 }}
               >
-                <h2 className="bg-gradient-to-r from-[#FFFFFF] via-[#FFA4CB] to-[#9B8EF8] bg-clip-text text-center text-5xl font-semibold capitalize text-transparent">
-                  Explore the Culture
+                <h2 className="bg-gradient-to-r from-[#FFFFFF] via-[#FFA4CB] to-[#9B8EF8] bg-clip-text text-center text-3xl font-semibold capitalize text-transparent lg:text-5xl">
+                  Explore The Culture
                 </h2>
-
                 <button
                   onClick={() => {
                     setModalType(ModalType.form);
