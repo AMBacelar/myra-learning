@@ -273,7 +273,7 @@ const Home: NextPage = () => {
           <section>
             <div className="container mx-auto px-10">
               <div
-                className="mb-40 rounded-[40px] border border-white px-20 py-14 lg:px-60"
+                className="mb-40 rounded-[40px] border border-white px-20 py-14 text-center lg:px-60"
                 style={{
                   background:
                     "linear-gradient(107.82deg, rgba(80, 29, 67, 0.246) 4.16%, rgba(34, 29, 50, 0.6) 29.8%, rgba(34, 29, 50, 0.6) 62.96%, rgba(80, 29, 67, 0.348) 96.69%)",
