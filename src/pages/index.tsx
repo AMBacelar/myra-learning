@@ -49,7 +49,7 @@ const Home: NextPage = () => {
                       THE WORLD’S #1 AI POWERED CULTURE LEARNING APP
                     </strong>
                   </p>
-                  <p className="mt-6 bg-gradient-to-r from-[#FFFFFF] to-[#AC91F0] bg-clip-text text-center text-8xl text-transparent">
+                  <p className="mt-6 bg-gradient-to-r from-[#FFFFFF] to-[#AC91F0] bg-clip-text text-center text-5xl text-transparent md:text-8xl">
                     <strong>65,000+</strong>
                   </p>
                   <p className="mt-6 text-center text-4xl leading-8 text-white">
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <section className="">
-            <div className="container mx-auto px-10">
+            <div className="container mx-auto ">
               <div className="lg:flex lg:items-center">
                 <div className="flex lg:w-1/2 lg:items-center lg:justify-center">
                   <img
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
                 <div className="w-full space-y-12 lg:w-1/2 ">
                   <div className="md:-ml-14 md:flex md:items-start">
                     <div
-                      className="mt-4 rounded-[40px] border-transparent py-8 pl-14 pr-14 text-center md:mx-4 md:mt-0 lg:text-left"
+                      className="mt-4 rounded-[40px] border-transparent py-8 px-10 text-center md:mx-4 md:mt-0 lg:text-left"
                       style={{
                         background:
                           "linear-gradient(107.82deg, rgba(232, 127, 5, 0.37) -3.43%, rgba(145, 106, 49, 0.56) 29.8%, rgba(108, 34, 122, 0.57) 62.96%, #9641BD 101.38%)",
@@ -98,7 +98,7 @@ const Home: NextPage = () => {
                         Play The World
                       </h2>
 
-                      <p className="my-5 text-2xl text-white md:text-3xl">
+                      <p className="my-5 text-xl text-white md:text-3xl">
                         EXPLORE SOMETHING NEW
                       </p>
                       <button
@@ -118,9 +118,9 @@ const Home: NextPage = () => {
           </section>
           <div className="mt-12" />
           <section>
-            <div className="container mx-auto px-10">
+            <div className="container mx-auto">
               <div
-                className="mb-40 rounded-[40px] border border-white px-20 py-14 lg:px-60"
+                className="mb-40 rounded-[40px] border border-white py-14 px-10 lg:px-60"
                 style={{
                   background:
                     "linear-gradient(107.82deg, rgba(80, 29, 67, 0.246) 4.16%, rgba(34, 29, 50, 0.6) 29.8%, rgba(34, 29, 50, 0.6) 62.96%, rgba(80, 29, 67, 0.348) 96.69%)",
@@ -134,7 +134,7 @@ const Home: NextPage = () => {
           </section>
           <div className="mt-4" />
           <section>
-            <div className="container mx-auto px-10">
+            <div className="container mx-auto">
               <div className="lg:flex lg:items-center">
                 <div className="space-y-12 md:w-[28rem]">
                   <div className="md:-mx-4 md:flex md:items-start">
@@ -164,7 +164,7 @@ const Home: NextPage = () => {
           </section>
           <div className="mt-14" />
           <section>
-            <div className="container mx-auto px-10">
+            <div className="container mx-auto">
               <div className="lg:flex lg:items-center">
                 <div className="mr-10 hidden lg:flex">
                   <img
@@ -199,7 +199,7 @@ const Home: NextPage = () => {
             </div>
           </section>
           <section>
-            <div className="container mx-auto px-10">
+            <div className="container mx-auto">
               <div className="lg:flex lg:items-center">
                 <div className="space-y-12 md:w-96 ">
                   <div className="md:-mx-4 md:flex md:items-start">
@@ -230,7 +230,7 @@ const Home: NextPage = () => {
             </div>
           </section>
           <section>
-            <div className="container mx-auto px-10">
+            <div className="container mx-auto">
               <div className="lg:flex lg:items-center">
                 <div className="hidden lg:flex lg:w-1/2 lg:items-center lg:justify-center">
                   <img
@@ -271,15 +271,15 @@ const Home: NextPage = () => {
           </section>
           <div className="mt-12" />
           <section>
-            <div className="container mx-auto px-10">
+            <div className="container mx-auto">
               <div
-                className="mb-40 rounded-[40px] border border-white px-20 py-14 text-center lg:px-60"
+                className="mb-40 rounded-[40px] border border-white px-12 py-14 text-center lg:px-60"
                 style={{
                   background:
                     "linear-gradient(107.82deg, rgba(80, 29, 67, 0.246) 4.16%, rgba(34, 29, 50, 0.6) 29.8%, rgba(34, 29, 50, 0.6) 62.96%, rgba(80, 29, 67, 0.348) 96.69%)",
                 }}
               >
-                <h2 className="bg-gradient-to-r from-[#FFFFFF] via-[#FFA4CB] to-[#9B8EF8] bg-clip-text text-center text-3xl font-semibold capitalize text-transparent lg:text-5xl">
+                <h2 className="bg-gradient-to-r from-[#FFFFFF] via-[#FFA4CB] to-[#9B8EF8] bg-clip-text text-center text-2xl font-semibold capitalize text-transparent lg:text-5xl">
                   Explore The Culture
                 </h2>
                 <button
