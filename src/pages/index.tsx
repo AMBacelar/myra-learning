@@ -144,7 +144,7 @@ const Home: NextPage = () => {
                         30+ cultural games!
                       </h3>
 
-                      <p className="mt-3 text-xl text-white">
+                      <p className="mt-3 text-lg text-white">
                         Stay sharp, establish identity, and increase your
                         cultural awareness with 30+ mini games and challenges
                         that are designed to be exciting, simple and fun!
@@ -180,7 +180,7 @@ const Home: NextPage = () => {
                         Powered by AI
                       </h3>
 
-                      <p className="mt-3 text-xl text-white">
+                      <p className="mt-3 text-lg text-white">
                         As you play, our AI-powered platform will adjust to your
                         skills and learning interests. You can measure your
                         performance across skill groups and compare with others.
@@ -208,10 +208,10 @@ const Home: NextPage = () => {
                         Earn points & discover new places
                       </h3>
 
-                      <p className="mt-3 text-xl text-white">
+                      <p className="mt-3 text-lg text-white">
                         Access to more and more, for less!
                       </p>
-                      <p className="mt-3 text-xl text-white">
+                      <p className="mt-3 text-lg text-white">
                         Exchange your points for discounts and freebies to help
                         you uncover more about your interests and access a range
                         of cultural events and services.
@@ -247,10 +247,10 @@ const Home: NextPage = () => {
                         Empathy Boost!
                       </h3>
 
-                      <p className="mt-3 text-xl text-white">
+                      <p className="mt-3 text-lg text-white">
                         Develop more meaningful connections
                       </p>
-                      <p className="mt-3 text-xl text-white">
+                      <p className="mt-3 text-lg text-white">
                         Supported by research Myra games are designed in
                         collaboration with experts and backed by independent
                         analysis to improve empathy skills and social
