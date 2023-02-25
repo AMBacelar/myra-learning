@@ -44,7 +44,7 @@ const Home: NextPage = () => {
             <div className="mx-auto pt-20 pb-32 sm:pt-48 sm:pb-40">
               <div>
                 <div>
-                  <p className="mt-6 text-center text-lg leading-8 text-white">
+                  <p className="text-md mt-6 text-center leading-8 text-white md:text-lg">
                     <strong>
                       THE WORLD’S #1 AI POWERED CULTURE LEARNING APP
                     </strong>
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
                   <p className="mt-6 bg-gradient-to-r from-[#FFFFFF] to-[#AC91F0] bg-clip-text text-center text-5xl text-transparent md:text-8xl">
                     <strong>65,000+</strong>
                   </p>
-                  <p className="mt-6 text-center text-4xl leading-8 text-white">
+                  <p className="mt-6 text-center text-2xl leading-8 text-white md:text-4xl">
                     <strong>Users on the waitlist</strong>
                   </p>
                   <button
