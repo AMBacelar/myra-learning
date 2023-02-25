@@ -170,7 +170,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
                       </button>
                     </div>
                     {/*body*/}
-                    <div className="relative h-auto w-96 md:h-[420px] md:w-[600px]">
+                    <div className="relative h-80 w-96 sm:h-[420px] sm:w-[600px]">
                       <iframe
                         className="absolute top-0 left-0 h-full w-full"
                         src="https://www.youtube.com/embed/sBYHvuoQTLo"
