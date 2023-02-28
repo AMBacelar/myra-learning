@@ -50,6 +50,14 @@ export const Header = () => {
                 >
                   Careers
                 </a>
+                <a
+                  href="https://medium.com/@myralearninglabs"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-4 inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#FFFFFF77]"
+                >
+                  Blog
+                </a>
               </div>
             </div>
             <div className="space-x-10 md:flex">
@@ -126,6 +134,17 @@ to-[#09041C] py-6 px-6"
                   onClick={() => setShowSidebar(false)}
                 >
                   Careers
+                </a>
+              </li>
+              <li className="mb-1">
+                <a
+                  className="block rounded p-4 text-center text-lg font-semibold text-white hover:bg-orange-50 hover:text-orange-600"
+                  href="https://medium.com/@myralearninglabs"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setShowSidebar(false)}
+                >
+                  Blog
                 </a>
               </li>
             </ul>
