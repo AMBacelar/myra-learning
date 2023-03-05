@@ -1,14 +1,48 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { useContext, useState } from "react";
+import Script from "next/script";
+import { useContext, useState, useEffect } from "react";
 import { ModalContext, ModalType } from "../../pages/_app";
+
+export const useScript = (
+  url: string,
+  onLoad?: () => void,
+  attributes?: any
+) => {
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = url;
+    script.async = true;
+
+    if (onLoad) {
+      script.onload = onLoad;
+    }
+    if (attributes !== undefined) {
+      for (const key in attributes) {
+        if (Object.prototype.hasOwnProperty.call(attributes, key)) {
+          script.setAttribute(key, attributes[key]);
+        }
+      }
+    }
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [attributes, url]);
+};
 
 export const Header = () => {
   const { setModalType, setShowModal } = useContext(ModalContext);
   const [showSidebar, setShowSidebar] = useState(false);
+  useScript('https://embed.typeform.com/next/embed.js');
 
   return (
     <>
+
+      <Script />
       <div className="relative w-full">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
@@ -61,15 +95,13 @@ export const Header = () => {
               </div>
             </div>
             <div className="space-x-10 md:flex">
+
               <div className="flex flex-1 items-center justify-end">
                 <button
-                  onClick={() => {
-                    setModalType(ModalType.form);
-                    setShowModal(true);
-                  }}
+                  data-tf-popup="VfM5gzVP" data-tf-opacity="100" data-tf-iframe-props="title=My typeform" data-tf-transitive-search-params data-tf-medium="snippet"
                   className="ml-4 inline-flex items-center justify-center whitespace-nowrap rounded-md border bg-[#FFFFFF26] px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-[#FFFFFF77] md:text-base"
                 >
-                  Join Waitlist
+                  Beta Access
                 </button>
               </div>
             </div>
