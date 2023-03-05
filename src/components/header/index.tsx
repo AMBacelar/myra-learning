@@ -1,13 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Script from "next/script";
-import { useContext, useState, useEffect } from "react";
-import { ModalContext, ModalType } from "../../pages/_app";
+import { useState, useEffect } from "react";
 
 export const useScript = (
   url: string,
   onLoad?: () => void,
-  attributes?: any
 ) => {
   useEffect(() => {
     const script = document.createElement('script');
@@ -18,24 +16,16 @@ export const useScript = (
     if (onLoad) {
       script.onload = onLoad;
     }
-    if (attributes !== undefined) {
-      for (const key in attributes) {
-        if (Object.prototype.hasOwnProperty.call(attributes, key)) {
-          script.setAttribute(key, attributes[key]);
-        }
-      }
-    }
 
     document.body.appendChild(script);
 
     return () => {
       document.body.removeChild(script);
     };
-  }, [attributes, url]);
+  }, [url]);
 };
 
 export const Header = () => {
-  const { setModalType, setShowModal } = useContext(ModalContext);
   const [showSidebar, setShowSidebar] = useState(false);
   useScript('https://embed.typeform.com/next/embed.js');
 
